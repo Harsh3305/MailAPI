@@ -1,6 +1,7 @@
 package com.example.mailapi.service
 
 import com.example.mailapi.datasource.MockDatabase
+import com.example.mailapi.model.CombineEmailWithPassword
 import com.example.mailapi.model.EMailBody
 import org.springframework.stereotype.Service
 import java.util.*
@@ -11,42 +12,24 @@ import javax.mail.Session
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
 
-//import com.example.mailapi.datasource.MockDatabase
-//import com.example.mailapi.model.EMailBody
-//import org.springframework.mail.SimpleMailMessage
-//import org.springframework.mail.javamail.JavaMailSender
-//import org.springframework.stereotype.Service
-//import java.net.Authenticator
-//import java.net.PasswordAuthentication
-//import java.util.*
-//import javax.mail.Message
-//import javax.mail.Session
-//import javax.mail.internet.InternetAddress
-//import javax.mail.internet.MimeMessage
+
 
 
 @Service
 class SendEmailService (private val mockDatabase: MockDatabase) {
     fun sendMail (eMailBody: EMailBody) : EMailBody {
 
-//        val mailMessage = SimpleMailMessage()
-
-
-//
-//        mailMessage.setTo(eMailBody.getEmail());
-//        mailMessage.setSubject(eMailBody.getTitle());
-//        mailMessage.setText(eMailBody.getBody());
-//
-//        mailMessage.setFrom(mockDatabase.getEmail().email);
-//
-//        javaMailSender.send(mailMessage);
-
         sendEmail(mockDatabase.getEmail().email, eMailBody.getEmail(), eMailBody.getTitle(), eMailBody.getBody(), mockDatabase.getEmail().password)
 
         return eMailBody
     }
 
-    fun sendEmail(user: String, to:String, title: String,
+    fun sendMail (combineEmailWithPassword: CombineEmailWithPassword) : EMailBody{
+        sendEmail(combineEmailWithPassword.emailID.email, combineEmailWithPassword.eMailBody.getEmail(), combineEmailWithPassword.eMailBody.getTitle(), combineEmailWithPassword.eMailBody.getBody(), combineEmailWithPassword.emailID.password)
+        return combineEmailWithPassword.eMailBody
+    }
+
+    private fun sendEmail(user: String, to:String, title: String,
                   body: String, password: String) {
         val props = Properties()
         val host = "smtp.gmail.com"

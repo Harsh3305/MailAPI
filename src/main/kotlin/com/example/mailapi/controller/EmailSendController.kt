@@ -1,5 +1,6 @@
 package com.example.mailapi.controller
 
+import com.example.mailapi.model.CombineEmailWithPassword
 import com.example.mailapi.model.EMailBody
 import com.example.mailapi.service.SendEmailService
 import org.springframework.web.bind.annotation.GetMapping
@@ -17,5 +18,9 @@ class EmailSendController (private val sendEmailService: SendEmailService){
     @PostMapping
     fun sendMail (eMailBody: EMailBody) : EMailBody {
         return sendEmailService.sendMail(eMailBody)
+    }
+    @PostMapping
+    fun sendMail (combineEmailWithPassword: CombineEmailWithPassword) : EMailBody {
+        return sendEmailService.sendMail(combineEmailWithPassword)
     }
 }
