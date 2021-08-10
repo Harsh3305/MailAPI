@@ -1,4 +1,4 @@
 package com.example.mailapi.model
 
 
-data class CombineEmailWithPassword (final var eMailBody: EMailBody, final val emailID: EmailID)
+data class CombineEmailWithPassword (var eMailBody: EMailBody, val emailID: EmailID)
