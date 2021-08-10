@@ -24,7 +24,7 @@ Send Email by passing JSON object of type **[EMailBody](https://github.com/Harsh
 Send email body with sender email id and password by passing JSON object of type **[CombineEmailWithPassword](https://github.com/Harsh3305/MailAPI/blob/master/src/main/kotlin/com/example/mailapi/model/CombineEmailWithPassword.kt)**
 
 ```
-/sendMail
+/sendMail/customSendEmail
 ```
 
 -----

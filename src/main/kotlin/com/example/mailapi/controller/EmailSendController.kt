@@ -19,7 +19,7 @@ class EmailSendController (private val sendEmailService: SendEmailService){
     fun sendMail (eMailBody: EMailBody) : EMailBody {
         return sendEmailService.sendMail(eMailBody)
     }
-    @PostMapping
+    @PostMapping("/customSendEmail")
     fun sendMail (combineEmailWithPassword: CombineEmailWithPassword) : EMailBody {
         return sendEmailService.sendMail(combineEmailWithPassword)
     }
