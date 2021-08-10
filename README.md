@@ -4,7 +4,7 @@ This project is created to send an email using API call.
 This project is created using Spring Boot Framework
 
 
-[API](https://fakebankapi.azurewebsites.net/)
+[API](https://mailsendapi.azurewebsites.net)
 
 -----
 ## end-points
